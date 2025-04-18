@@ -9,6 +9,6 @@ class Job:
         self.output_path = output_path
 
     def run(self):
-        source_data = CsvExtractor(self.input_path).extract()
+        source_data = CsvExtractor().extract(self.input_path)
         transformed_data = Deduplicator(source_data).transform()
         JsonLoader(transformed_data).load(self.output_path)
